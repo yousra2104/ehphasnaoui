@@ -1,0 +1,44 @@
+
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.accordion {
+    background-color: #e5eafb;
+    color: black;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.active {
+    padding: 15px;
+    max-height: 500px; /* Adjust as needed */
+    color:black;
+    background-color: #e5eafb;
+}
+
+.icon {
+    font-size: 21px;
+    width: 30px;
+    height: 30px;
+    color: blue;
+    border-color: blue;
+}

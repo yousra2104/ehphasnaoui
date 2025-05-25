@@ -1,0 +1,63 @@
+.Feautes {
+    padding-top: 0;
+}
+.Feautes .single-features {
+    text-align: center;
+    position: relative;
+    padding: 10px 20px;
+}
+.Feautes .single-features::before {
+    position: absolute;
+    content: "";
+    right: -72px;
+    top: 60px;
+    width: 118px;
+    border-bottom: 3px dotted #265b94;
+}
+.Feautes .single-features.last::before {
+    display: none;
+}
+.Feautes .single-features .single-icon {
+    position: relative;
+    min-height: 100px;
+}
+.Feautes .single-features .single-icon i {
+    font-size: 32px;
+    color: #265b94;
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    top: 0;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    text-align: center;
+    border: 1px solid #dddddd;
+    border-radius: 100%;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.Feautes .single-features:hover .single-icon i {
+    background: linear-gradient(to left, #0d1b2a, #265b94);
+    color: #fff;
+    border-color: transparent;
+}
+@media (max-width: 1000px) {
+    .Feautes .single-features::before {
+        border-bottom: 0;
+    }
+}
+.Feautes .single-features h3 {
+    padding-top: 80px; /* Reduced from 128px to 80px */
+    color: #2C2D3F;
+    font-weight: 600;
+    font-size: 21px;
+}
+/* Ensure Icofont font applies */
+.icofont {
+    font-family: "IcoFont" !important;
+}
+.container-fluid{
+    margin-bottom: 50px;
+}

@@ -1,0 +1,44 @@
+   
+.breadcrumbs {
+	background-image: url('/assets/img/IMG_4642.jpg');
+	background-size: cover;
+	background-position: center top 30%;
+	background-repeat: no-repeat;
+	position: relative;
+	padding: 180px 0px;
+}
+.breadcrumbs .bread-inner{
+	z-index:22;
+	text-align:center;
+}
+.overlay h2{
+	color: #fff;
+	text-transform:capitalize;
+	font-size: 38px;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+    line-height: 1.2;
+	text-shadow: 1.5px 1.5px black;
+ }
+ 
+ 
+ 
+
+.overlay{
+	position:relative;
+}
+.overlay:before{
+	position:absolute;
+	content:"";
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+
+	background: linear-gradient(to right,#2597bf,#A8D5E2 );
+	opacity:0.93;
+}
+
+
+

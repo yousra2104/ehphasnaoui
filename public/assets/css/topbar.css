@@ -1,0 +1,29 @@
+
+.topbar {
+	padding: 5px;
+	margin-left: 0px;
+	border-bottom: 3px solid #f9f9f9;
+	width:100%; /* Adjust width as needed */
+
+
+}
+
+ .center{
+    margin: auto;
+}
+
+.infocontact{
+	margin-top: 12px;
+    color:black;
+}
+@media only screen and (max-width: 900px) {
+	.infocontact{
+		margin-top: 0px;
+		justify-content: space-between;
+	}
+	.mobile{
+		display: none;
+	}
+  }
+ 
+

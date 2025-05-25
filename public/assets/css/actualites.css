@@ -1,0 +1,180 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Container and row styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-lg-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    padding: 0 15px;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+/* Single news card */
+.single-news {
+    margin-bottom: 30px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.news-head img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-body {
+    padding: 15px;
+}
+
+.news-content .date {
+    font-size: 14px;
+    color: #9499A2;
+    margin-bottom: 10px;
+}
+
+.news-content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.news-content h2 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.news-content .text {
+    font-size: 16px;
+    color: #9499A2;
+    margin-bottom: 15px;
+}
+
+.buttonn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.buttonn p {
+    margin-right: 8px;
+}
+
+.buttonn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Pagination styles */
+.flex {
+    display: flex;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #606060;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    transition: background-color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #f3f4f6;
+}
+
+.pagination a.active {
+    background-color: #e5e7eb;
+    font-weight: bold;
+}
+
+.pagination a.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination a:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.pagination a:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+/* FadeIn animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-lg-4, .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

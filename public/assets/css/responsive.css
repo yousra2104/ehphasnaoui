@@ -1,0 +1,169 @@
+/* Responsive CSS for EHP-HASNAOUI Homepage and Included Pages */
+
+/* Topbar Responsiveness */
+@media (max-width: 767px) {
+    .topbar .row {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .topbar .col-sm-8,
+    .topbar .col-sm-4 {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .topbar .site-info a {
+      display: inline-block;
+      margin: 5px 0;
+    }
+  
+    .topbar .social-mini-button {
+      justify-content: center;
+    }
+  }
+  
+  /* Navbar Responsiveness */
+  @media (max-width: 991px) {
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 10px 0;
+    }
+  
+    .navbar-collapse {
+      padding: 10px;
+    }
+  }
+  
+  /* Slider Responsiveness */
+  @media (max-width: 767px) {
+    .page-hero.bg-image {
+      height: 400px;
+    }
+  
+    .hero-section .subhead {
+      font-size: 1rem;
+    }
+  
+    .hero-section h1 {
+      font-size: 1.8rem;
+    }
+  
+    .hero-section .btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* EHP Why Section */
+  @media (max-width: 767px) {
+    .card-service {
+      margin-bottom: 30px;
+    }
+  }
+  
+  /* Video Section */
+  @media (max-width: 767px) {
+    .video-section iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
+  
+  /* Avis (Testimonials) Section */
+  @media (max-width: 767px) {
+    .avis-section .owl-carousel .item {
+      text-align: center;
+    }
+  
+    .avis-section .owl-carousel .item img {
+      max-width: 100px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Convention Section */
+  @media (max-width: 767px) {
+    .convention-section {
+      text-align: center;
+    }
+  }
+  
+  /* Latest Actualités Section */
+  @media (max-width: 767px) {
+    .section-title h2 {
+      font-size: 1.5rem;
+    }
+  
+    .section-title img {
+      max-width: 80px;
+    }
+  }
+  
+  /* Footer Responsiveness */
+  @media (max-width: 767px) {
+    .page-footer .row {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .page-footer .col-sm-6,
+    .page-footer .col-lg-3 {
+      margin-bottom: 20px;
+    }
+  
+    .footer-sosmed {
+      justify-content: center;
+    }
+  }
+  
+  /* General Image Responsiveness */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Owl Carousel Responsiveness */
+  @media (max-width: 767px) {
+    .owl-carousel .owl-nav {
+      display: none;
+    }
+  }
+  
+  /* Bootstrap Container Adjustments */
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+  
+  /* Disable Animations on Mobile */
+  @media (max-width: 767px) {
+    .wow {
+      animation: none !important;
+      visibility: visible !important;
+    }
+  }

@@ -1,0 +1,64 @@
+.fun-facts{
+	position:relative;
+}
+.fun-facts.section{
+	padding:60px 0;
+}
+.fun-facts{
+	background: url('/assets/img/couvertureehph.jfif'); /* If absolute from root */
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+.fun-video{
+	position:relative;
+}
+.fun-vedo.section{
+	padding:100px 0;
+}
+.fun-vedeo{
+ 	background-size:cover;
+	background-repeat:no-repeat;
+}
+.video-overlayy {
+    padding: 10px;
+	background: linear-gradient(to left, rgba(9, 30, 62, .8), rgba(9, 30, 62, .8));
+}
+.video-overlay{
+	background: linear-gradient(to left, rgba(9, 30, 62, .7), rgba(9, 30, 62, .7));
+ padding: 200px;
+}
+@media (min-width:0px) and (max-width: 1000px) {
+	.video-overlay{
+ 	 padding: 20px;
+	}	
+}
+
+.fun-facts .single-fun .content {
+	padding-left: 80px;
+}
+.fun-facts .single-fun span, .fun-facts .single-fun p{
+	color: #23B6EA;
+	position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    top: 0;
+	background: linear-gradient(to right,#2597bf,#A8D5E2 );
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    text-align: center;
+    border: 1px solid #dddddd;
+    border-radius: 100%;
+	font-weight: 600;
+	font-size: 30px;
+	display: block;
+
+	transition: all 0.4s eas;
+	margin-bottom: 7px;
+}
+.fun-facts .single-fun p{
+	color:#fff;
+	font-size:15px;
+}
+
+ 

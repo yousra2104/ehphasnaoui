@@ -1,0 +1,80 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.schedule-inner {
+    position: relative;
+}
+
+.conv-slider {
+    position: relative;
+    overflow: hidden;
+
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-slide {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.single-schedule {
+    display: flex;
+    justify-content: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.qu-prev,
+.qu-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    background: #2597bf;
+    color: white;
+    align-items: center;
+    width: 40px;
+    height: 45px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    transition: 0.3s ease;
+    pointer-events: auto;
+    margin-right: -9px; /* For prev */
+    margin-left: -9px;
+}
+
+.qu-prev {
+    left: 10px;
+}
+
+.qu-next {
+    right: 10px;
+    
+}
+
+
+.qu-prev:disabled,
+.qu-next:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.single-clients {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+}

@@ -1,0 +1,126 @@
+.single-pf {
+    position: relative;
+}
+
+/* Adjust image size */
+.single-pf .img-fluid {
+    width: 100%; /* Full width of the container */
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image fills the space without distortion */
+    display: block;
+}
+
+/* Overlay effect */
+.single-pf:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.single-pf:hover:before {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+/* Button styling */
+.single-pf .btn {
+    
+    z-index: 3;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    height: 48px;
+    width: 150px;
+    text-align: center;
+    line-height: 48px;
+    padding: 0;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: -75px;
+    margin-top: -24px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.single-pf:hover .btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.single-pf .btn:hover {
+    color: #fff;
+}
+
+/* Team item and text styling */
+.team-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.team-text {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-text h5 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.team-text p {
+    margin: 0;
+    color: #23B6EA;
+    font-size: 1rem;
+}
+
+/* Carousel-specific adjustments */
+.carousel-item .row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .single-pf .img-fluid {
+        height: 300px; /* Smaller height on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .single-pf .img-fluid {
+        height: 300px; /* Even smaller on small screens */
+    }
+}

@@ -1,0 +1,209 @@
+/* Footer General Styles */
+.footer {
+    position: relative;
+    background: linear-gradient(to left, #0d1b2a, #265b94);
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer .single-footer h2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer .single-footer h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 30px;
+    background: #fff;
+}
+
+.footer .single-footer p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer .single-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .single-footer a:hover {
+    color: #ddd;
+}
+
+/* Icons */
+.footer .single-footer .icon i {
+    color: #fff;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.footer .single-footer .d-flex i {
+    color: #fff;
+    font-size: 30px;
+}
+
+/* Services Links */
+.footer .single-footer .d-flex.gap-2 i {
+    font-size: 16px;
+}
+
+.footer .single-footer .d-flex.gap-2 p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.footer .single-footer .d-flex.gap-2:hover p {
+    color: #ddd;
+}
+
+/* Social Icons */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    color: #265b94;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #ddd;
+    color: #0d1b2a;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #265b94;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #265b94;
+}
+
+.btn-outline-light {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light i {
+    font-size: 16px;
+}
+
+.btn-outline-light:hover {
+    background: #fff;
+    color: #265b94;
+}
+
+/* Copyright */
+.footer .copyright {
+    background: #23B6EA;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .copyright p {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer .copyright p b {
+    font-size: 12px;
+}
+
+/* Floating Contact Button */
+.floating-contact {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #2597bf;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #1a9cd6;
+}
+
+/* Utility Classes */
+.d-flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.gap-2 {
+    gap: 10px;
+}
+
+.gap-3 {
+    gap: 15px;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.p-4 {
+    padding: 20px;
+}
