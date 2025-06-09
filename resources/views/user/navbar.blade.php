@@ -1,3 +1,4 @@
+
 <style>
   /* Navbar styling */
   .navbar {
@@ -107,17 +108,28 @@
   }
 
   /* Ensure dropdown items are clickable */
-  .list-group-item {
-    padding: 10px 15px;
-    font-size: 1rem;
-  }
+.list-group-item {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* Ne pas désactiver pointer-events sur icône et span */
 
   /* Hover effect for links */
-  .nav-link:hover,
-  .list-group-item:hover {
+  .nav-link:hover
+   {
     background-color: #e9ecef;
     transition: background-color 0.2s;
+    cursor: pointer; /* Ensure cursor indicates clickability */
   }
+
 
   /* Ensure images or background elements don’t overlap */
   img,
@@ -133,14 +145,18 @@
     z-index: 10; /* Below navbar but above background */
   }
 
-.fa-exclamation-circle, .fa-envelope {
-  width: 30px;
-  height: 30px;
-  margin-right: 8px; /* Match me-2 spacing */
-  vertical-align: middle;
-  font-size: 24px; /* Ensure icon is visible */
-  color: #66DED4;
-}
+  .fa-exclamation-circle, .fa-envelope {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px; /* Match me-2 spacing */
+    vertical-align: middle;
+    font-size: 24px; /* Ensure icon is visible */
+    color: #66DED4;
+  }
+
+  /* Ensure link and icon behave as a single unit */
+
+  
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
@@ -297,30 +313,19 @@
           <div class="dropdown-menu">
             <div class="container">
               <div class="row my-4">
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <div class="list-group list-group-flush">
-                    <a href="{{ route('contact') }}" class="list-group-item list-group-item-action border-0">
-                      <div class="d-flex align-items-center text-nowrap">
-                        <i class="fas fa-envelope me-2"></i>
-                        <span>Contact</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('reclamations') }}" class="list-group-item list-group-item-action border-0">
-                      <div class="d-flex align-items-center text-nowrap">
-                        <i class="fas fa-exclamation-circle me-2"></i>
-                        <span>Réclamations</span>
-                      </div>
+            
+                 <div class="list-group list-group-flush">
+  <a href="{{ route('contact') }}" class="list-group-item list-group-item-action d-flex align-items-center border-0" style="margin-left:7px;">
+    <i class="fas fa-envelope me-2"></i>
+    <span>Contact</span>
+  </a>
+
+                    <a href="{{ route('reclamations') }}" class="list-group-item list-group-item-action border-0 d-flex align-items-center text-nowrap"style="margin-left:7px;">
+                      <i class="fas fa-exclamation-circle me-2"></i>
+                      <span>Réclamations</span>
                     </a>
                   </div>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <!-- Empty column to maintain layout consistency -->
-                  <div class="list-group list-group-flush"></div>
-                </div>
-                <div class="col-md-4">
-                  <!-- Empty column to maintain layout consistency -->
-                  <div class="list-group list-group-flush"></div>
-                </div>
+             
               </div>
             </div>
           </div>

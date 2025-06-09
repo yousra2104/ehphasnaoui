@@ -1,4 +1,3 @@
-
 <?php
 $testimonials = [
     [
@@ -30,46 +29,47 @@ $testimonials = [
 
 <style>
     .containerr {
-height:400px;
-max-width: 1200px; margin: 0 auto;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 400px; /* Use min-height instead of fixed height */
+        height: auto; /* Allow container to grow based on content */
     }
 </style>
 
-    <div class="testimonials-container text-white">
-        <div class="containerr py-5">
-            <div class="row">
-                <!-- Left Section -->
-                <div class="col-12 col-md-4 text-center text-md-start mb-4 mb-md-0">
-                    <h6 class="text-primary">Témoignages</h6>
-                    <h2 class="fw-bold">Ce que disent les gens</h2>
-                    <p>Nous nous engageons à fournir des soins de qualité, en veillant au bien-être et à la satisfaction de nos patients.</p>
-                    <hr class="w-100" style="height: 1px; background-color: white ; border: none;" />
-                    <div class="happy-patients mt-4 d-flex justify-content-center justify-content-md-start align-items-center gap-3">
-                        
-                        <i style="color:white; font-size: 3em; "class="fas fa-face-smile"></i>
-                        <div>
-                            <h3 class="text-info fw-bold">+85%</h3>
-                            <p>Patients Satisfaits </p>
-                        </div>
+<div class="testimonials-container text-white">
+    <div class="containerr py-5">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-12 col-md-4 text-center text-md-start mb-4 mb-md-0">
+                <h6 class="text-primary">Témoignages</h6>
+                <h2 class="fw-bold">Les avis exprimés par nos patients.</h2>
+                <p>Nous nous engageons à fournir des soins de qualité, en veillant au bien-être et à la satisfaction de nos patients.</p>
+                <hr class="w-100" style="height: 1px; background-color: white; border: none;" />
+                <div class="happy-patients mt-4 d-flex justify-content-center justify-content-md-start align-items-center gap-3">
+                    <i style="color:white; font-size: 3em;" class="fas fa-face-smile"></i>
+                    <div>
+                        <h3 class="text-info fw-bold">+85%</h3>
+                        <p>Patients Satisfaits</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Right Section - Testimonials -->
-                <div class="col-12 col-md-8">
-                    <div class="testimonial-slide d-flex flex-column flex-md-row gap-4 justify-content-center" id="testimonial-slide">
-                        <!-- Testimonials will be populated by JavaScript -->
-                    </div>
-                    <div class="d-flex justify-content-center mt-3" id="indicators">
-                        <?php foreach ($testimonials as $index => $testimonial): ?>
-                            <span class="indicator" data-slide="<?php echo $index; ?>"></span>
-                        <?php endforeach; ?>
-                    </div>
+            <!-- Right Section - Testimonials -->
+            <div class="col-12 col-md-8">
+                <div class="testimonial-slide d-flex flex-column flex-md-row gap-4 justify-content-center" id="testimonial-slide">
+                    <!-- Testimonials will be populated by JavaScript -->
+                </div>
+                <div class="d-flex justify-content-center mt-3" id="indicators">
+                    <?php foreach ($testimonials as $index => $testimonial): ?>
+                        <span class="indicator" data-slide="<?php echo $index; ?>"></span>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
+<script>
     const testimonials = <?php echo json_encode($testimonials); ?>;
     let currentSlide = 0;
 
@@ -117,6 +117,10 @@ max-width: 1200px; margin: 0 auto;
             `;
         }
         updateIndicators();
+
+        // Force layout recalculation
+        slideContainer.style.height = ''; // Reset height
+        slideContainer.style.height = slideContainer.scrollHeight + 'px'; // Set to content height
     }
 
     function updateIndicators() {
@@ -142,6 +146,10 @@ max-width: 1200px; margin: 0 auto;
         });
     });
 
-    // Re-render on window resize to handle dynamic screen size changes
-    window.addEventListener('resize', renderTestimonials);
+    // Debounce resize event to prevent excessive recalculations
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(renderTestimonials, 100);
+    });
 </script>

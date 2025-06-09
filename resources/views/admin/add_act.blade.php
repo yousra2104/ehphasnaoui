@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../assets/css/admincss/tableau.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/tableau.js') }}"></script>
+    <script src="../assets/js/tableau.js"></script>
     <style>
         .error {
             color: red;
@@ -27,9 +27,15 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 20px;
+            padding: 20px; /* Increased padding slightly */
             z-index: 1000;
             transition: opacity 0.3s ease;
+            width: 90%;
+            max-width: 600px; /* Increased max-width for slightly larger popup */
+            max-height: 80vh; /* Limit height to 80% of viewport */
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .popup.active {
             display: block;
@@ -51,7 +57,7 @@
             opacity: 1;
         }
         .form-field {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .form-field label {
             display: block;
@@ -68,6 +74,7 @@
         .button-group {
             display: flex;
             gap: 10px;
+            justify-content: flex-end;
         }
         .close-btn {
             margin-top: 10px;
@@ -75,6 +82,7 @@
             background: #ccc;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
         }
         .action-buttons {
             margin-bottom: 20px;

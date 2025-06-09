@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités - EHP-HASNAOUI</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/actualites.css') }}">
+    <link rel="stylesheet" href="../assets/css/actualites.css">
     <style>
         .modal {
             display: none;
@@ -118,8 +118,22 @@
                         alert(data.error);
                         return;
                     }
+                    // Difference: In the first code, we define a default image URL and transform the API-provided image URL
+                    // by removing 'storage/' to match the card's asset($act->image) path.
+                    let imageUrl = '{{ asset('assets/img/placeholder.jpg') }}'; // Default fallback
+                    if (data.image) {
+                        // Remove 'storage/' from the URL to match card's asset($act->image)
+                        imageUrl = data.image.replace('storage/', '');
+                        console.log('Original API image URL:', data.image);
+                        console.log('Transformed image URL for modal:', imageUrl);
+                    } else {
+                        console.log('No image provided by API, using placeholder');
+                    }
+                    // Difference: The first code includes additional attributes in the img tag (style and onerror handler)
+                    // and uses the transformed imageUrl variable. The second code directly uses data.image in a
+                    // conditional template literal without transformation or fallback handling in the HTML output.
                     document.getElementById('modal-content').innerHTML = `
-                        ${data.image ? `<img src="${data.image}" alt="${data.titre}">` : ''}
+                        <img src="${imageUrl}" alt="${data.titre || 'Actualité'}" style="max-width: 100%;" onerror="this.src='{{ asset('assets/img/placeholder.jpg') }}'; console.log('Image failed to load, using placeholder');">
                         <div class="date">${data.date}</div>
                         <h2>${data.titre}</h2>
                         <p>${data.description}</p>

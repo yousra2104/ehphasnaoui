@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
     <title>Contact - EHPHASNAOUI</title>
-    <link rel="icon" href="{{ asset('assets/img/logozoom.PNG') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/BreadcumbsVisite.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/contactform.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/BreadcrumbsVisite.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/globals.css') }}">
+    <link rel="icon" href="../assets/img/logozoom.PNG" />
+    <link rel="stylesheet" href="../assets/css/BreadcumbsVisite.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/contactform.css">
+    <link rel="stylesheet" href="../assets/css/BreadcrumbsVisite.css">
+    <link rel="stylesheet" href="../assets/css/globals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icofont/1.0.1/icofont.min.css">
    
 </head>
@@ -39,11 +39,11 @@
     @include('user.contactform')
     @include('user.footer')
 
-    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="../assets/vendor/wow/wow.min.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +8,18 @@
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>EHP-HASNAOUI</title>
-  <link rel="icon" href="{{ asset('assets/img/logozoom.PNG') }}" />
+  <link rel="icon" href="../assets/img/logozoom.PNG" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="{{ asset('assets/css/maicons.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.carousel.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendor/animate/animate.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/avis.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/breadcrumbsapropos.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/globals.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/back-to-top.css') }}">
+  <link rel="stylesheet" href="../assets/css/maicons.css">
+  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="../assets/css/avis.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/globals.css">
+  <link rel="stylesheet" href="../assets/css/breadcrumbsapropos.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/back-to-top.css">
 
   <style>
     .news-card {
@@ -44,11 +45,11 @@
 
     .news-card-body {
       padding: 15px;
+      font-size: 20px;
     }
 
     .news-card-title {
-      font-size: 1.25rem;
-      font-weight: bold;
+      font-size: 20px;
       margin-bottom: 10px;
     }
 
@@ -103,7 +104,7 @@
     .modal-body .news-title {
       font-size: 1.5rem;
       font-weight: bold;
-      margin-bottom набирай 15px;
+      margin-bottom: 15px;
     }
 
     .modal-body .news-description {
@@ -155,7 +156,7 @@
       <div class="col-lg-12">
         <div class="section-title">
           <h2>Suivez nos dernières Actualités :</h2>
-          <img src="{{ asset('assets/img/section-img.png') }}" class="mb-3" alt="Section Image"/>
+          <img src="../assets/img/section-img.png" class="mb-3" alt="Section Image"/>
         </div>
       </div>
     </div>
@@ -213,12 +214,12 @@
     </div>
   </div>
 
-  <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
+  <script src="../assets/js/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('assets/vendor/wow/wЛАСХАЛЕНЬКО.min.js') }}"></script>
-  <script src="{{ asset('assets/js/theme.js') }}"></script>
-  <script src="{{ asset('assets/js/back-to-top.js') }}"></script>
+  <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/wow/wow.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/back-to-top.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -276,11 +277,22 @@
 
               const modalImage = document.getElementById('newsModalImage');
               if (data.image) {
-                modalImage.src = data.image;
+                const imageUrl = data.image.replace('storage/', '');
+                console.log('Original API image URL:', data.image);
+                console.log('Transformed image URL for modal:', imageUrl);
+                modalImage.src = imageUrl;
                 modalImage.style.display = 'block';
               } else {
-                modalImage.style.display = 'none';
+                console.log('No image provided by API, hiding image');
+                modalImage.src = '{{ asset('assets/img/placeholder-news.jpg') }}';
+                modalImage.style.display = 'block';
               }
+
+              modalImage.onerror = function() {
+                console.log('Image failed to load, using placeholder');
+                this.src = '{{ asset('assets/img/placeholder-news.jpg') }}';
+                this.style.display = 'block';
+              };
 
               const modal = new bootstrap.Modal(document.getElementById('newsModal'), {
                 backdrop: true,
@@ -289,16 +301,14 @@
               });
               modal.show();
 
-              // Nettoyer le backdrop et restaurer la position après fermeture
               document.getElementById('newsModal').addEventListener('hidden.bs.modal', function () {
                 console.log('Modale fermée');
                 document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
-                document.body.classList.remove('modal-openHis');
+                document.body.classList.remove('modal-open');
                 document.body.style.paddingRight = '';
                 restoreScrollPosition();
               }, { once: true });
 
-              // Gestion manuelle des boutons de fermeture
               document.querySelector('.btn-close').addEventListener('click', function () {
                 const modalInstance = bootstrap.Modal.getInstance(document.getElementById('newsModal'));
                 modalInstance.hide();

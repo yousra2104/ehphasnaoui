@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
     <title>Réclamations - EHPHASNAOUI</title>
-    <link rel="icon" href="{{ asset('assets/img/logozoom.PNG') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/BreadcumbsVisite.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/contactform.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/globals.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icofont/1.0.1/icofont.min.css">
+    <link rel="icon" href="../assets/img/logozoom.PNG" />
+    <link rel="stylesheet" href="../assets/css/BreadcumbsVisite.css" />
+    <link rel="stylesheet" href="../assets/css/theme.css" />
+    <link rel="stylesheet" href="../assets/css/contactform.css" />
+    <link rel="stylesheet" href="../assets/css/globals.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icofont/1.0.1/icofont.min.css" />
     <style>
         /* Ensure the entire page is responsive */
         body {
@@ -51,7 +51,7 @@
 
         .contact-us-left iframe {
             width: 100%;
-            height: 100%; /* Adjusted for responsiveness */
+            height: 100%;
             max-height: 100%;
             border: 0;
         }
@@ -71,11 +71,12 @@
             margin-bottom: 20px;
         }
 
-        /* Form field borders */
+        /* Form field borders and consistent styling */
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group select,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group input[type="checkbox"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -94,10 +95,24 @@
             box-shadow: 0 0 5px rgba(35, 182, 234, 0.3);
         }
 
-        /* Checkbox styling (default browser appearance) */
-        .checkbox-group input[type="checkbox"] {
+        /* Checkbox styling to match other inputs */
+        .form-group input[type="checkbox"] {
+            width: auto;
             margin-right: 10px;
-            /* No custom styling to preserve original appearance */
+            vertical-align: middle;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Checkbox group for complaint types */
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            vertical-align: middle;
         }
 
         .checkbox-group label {
@@ -123,8 +138,8 @@
         }
 
         .btn-primary:hover {
-            background-color:#23B6EA;
-            border-color:#23B6EA;
+            background-color: #1a9cd1;
+            border-color: #1a9cd1;
         }
 
         /* Contact info section */
@@ -133,24 +148,26 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background:#23B6EA;
+            background: #23B6EA;
             border-radius: 4px;
             margin-bottom: 15px;
         }
 
         .contact-info .single-info i {
             font-size: 1.5rem;
-            color: #23B6EA;
+            color: #fff;
         }
 
         .contact-info .single-info h3 {
             margin: 0;
             font-size: 1.2rem;
+            color: #fff;
         }
 
         .contact-info .single-info p {
             margin: 0;
             font-size: 1rem;
+            color: #fff;
         }
 
         /* Responsive adjustments */
@@ -200,6 +217,7 @@
                 margin-bottom: 10px;
             }
 
+            .form-group label,
             .checkbox-group label {
                 font-size: 0.9rem;
             }
@@ -260,7 +278,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('reclamations.store') }}" method="POST">
+                            <form action="{{ route('reclamations.store') }}" method="POST" id="reclamationsForm">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -397,6 +415,17 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>
+                                                <input type="checkbox" name="consent" id="consent" value="1" {{ old('consent') ? 'checked' : '' }}>
+                                                J'accepte que mes données soient utilisées et stockées conformément à la loi 18/07.
+                                            </label>
+                                            @error('consent')
+                                                < Himanshu span class="error">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <div id="response" style="color: red;"></div>
                                     </div>
@@ -416,8 +445,8 @@
                         <div class="single-info">
                             <i class="icofont icofont-ui-call"></i>
                             <div class="content">
-                                <a href="tel:048771441" target="_blank"><h3>048 77 14 41</h3></a>
-                                <a href="mailto:info@ehph-hasnaoui.com" target="_blank"><p>info@ehph-hasnaoui.com</p></a>
+                                <a href="tel:048771441" target="_blank" style="text-decoration: none;"><h3>048 77 14 41</h3></a>
+                                <a href="mailto:info@ehph-hasnaoui.com" target="_blank" style="text-decoration: none;"><p>info@ehph-hasnaoui.com</p></a>
                             </div>
                         </div>
                     </div>
@@ -425,7 +454,7 @@
                         <div class="single-info">
                             <i class="icofont icofont-google-map"></i>
                             <div class="content">
-                                <a href="https://www.google.com/maps/place/Etablissement+Hospitalier+Priv%C3%A9+HASNAOUI/@35.1791377,-0.6318223,15z/data=!4m2!3m1!1s0x0:0x23bae99ee4007340?sa=X&ved=1t:2428&ictx=111" target="_blank">
+                                <a href="https://www.google.com/maps/place/Etablissement+Hospitalier+Priv%C3%A9+HASNAOUI/@35.1791377,-0.6318223,15z/data=!4m2!3m1!1s0x0:0x23bae99ee4007340?sa=X&ved=1t:2428&ictx=111" target="_blank" style="text-decoration: none;">
                                     <h3>Bloc J05 Makam El Chahid</h3>
                                     <p>Sidi Bel Abbes</p>
                                 </a>
@@ -447,11 +476,22 @@
     </div>
     @include('user.footer')
 
-    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="../assets/vendor/wow/wow.min.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <script>
+        document.getElementById('reclamationsForm').addEventListener('submit', function(event) {
+            const consentCheckbox = document.getElementById('consent');
+            const responseDiv = document.getElementById('response');
+
+            if (!consentCheckbox.checked) {
+                event.preventDefault();
+                responseDiv.textContent = 'Veuillez accepter l’utilisation et le stockage de vos données conformément à la loi 18/07.';
+            } else {
+                responseDiv.textContent = '';
+            }
+        });
+    </script>

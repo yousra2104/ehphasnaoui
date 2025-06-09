@@ -32,7 +32,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('contact.store') }}" method="POST">
+                        <form action="{{ route('contact.store') }}" method="POST" id="contactForm">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="email" name="email" placeholder="Mail" value="{{ old('email') }}" >
+                                        <input type="email" name="email" placeholder="Mail" value="{{ old('email') }}">
                                         @error('email')
                                             <span class="error">{{ $message }}</span>
                                         @enderror
@@ -75,11 +75,23 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label style="display: flex; align-items: center;">
+                                            <input type="checkbox" name="consent" id="consent" value="1" {{ old('consent') ? 'checked' : '' }} style="margin-right: 10px;">
+                                            J'accepte que mes données soient utilisées et stockées.
+                                            j'accepte que les informations saisies soient utilisées pour me recontacter
+                                        </label>
+                                        @error('consent')
+                                            <span class="error">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <div id="response" style="color: red;"></div>
                                 </div>
                                 <div class="col-12">
-                                    <button style="background-color: #23B6EA;border-color: #23B6EA;"class="btn btn-primary w-100 py-3" type="submit">Envoyer le Message</button>
+                                    <button style="background-color: #23B6EA; border-color: #23B6EA;" class="btn btn-primary w-100 py-3" type="submit">Envoyer le Message</button>
                                 </div>
                             </div>
                         </form>
@@ -94,8 +106,8 @@
                     <div class="single-info">
                         <i class="icofont icofont-ui-call"></i>
                         <div class="content">
-                            <a href="tel:048771441" target="_blank"><h3>048 77 14 41</h3></a>
-                            <a href="mailto:info@ehph-hasnaoui.com" target="_blank"><p>info@ehph-hasnaoui.com</p></a>
+                            <a href="tel:048771441" target="_blank" style="text-decoration: none;"><h3>048 77 14 41</h3></a>
+                            <a href="mailto:info@ehph-hasnaoui.com" target="_blank"style="text-decoration: none;"><p>info@ehph-hasnaoui.com</p></a>
                         </div>
                     </div>
                 </div>
@@ -103,8 +115,8 @@
                     <div class="single-info">
                         <i class="icofont icofont-google-map"></i>
                         <div class="content">
-                            <a href="https://www.google.com/maps/place/Etablissement+Hospitalier+Priv%C3%A9+HASNAOUI/@35.1791377,-0.6318223,15z/data=!4m2!3m1!1s0x0:0x23bae99ee4007340?sa=X&ved=1t:2428&ictx=111" target="_blank">
-                                <h3>Bloc J05 MakamEl Chahid</h3>
+                            <a href="https://www.google.com/maps/place/Etablissement+Hospitalier+Priv%C3%A9+HASNAOUI/@35.1791377,-0.6318223,15z/data=!4m2!3m1!1s0x0:0x23bae99ee4007340?sa=X&ved=1t:2428&ictx=111" target="_blank" style="text-decoration: none;">
+                                <h3>Bloc J05 Makam El Chahid</h3>
                                 <p>Sidi Bel Abbes</p>
                             </a>
                         </div>
@@ -122,3 +134,62 @@
             </div>
         </div>
     </div>
+</div>
+
+<style>
+    .contact-us-form .form-group input,
+    .contact-us-form .form-group textarea,
+    .contact-us-form .form-group input[type="checkbox"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .contact-us-form .form-group textarea {
+        resize: vertical;
+    }
+
+    .contact-us-form .form-group input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .contact-us-form .form-group label {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .contact-us-form .error {
+        color: red;
+        font-size: 14px;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .contact-us-form .btn-primary {
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-us-form .btn-primary:hover {
+        background-color: #1a9cd1;
+        border-color: #1a9cd1;
+    }
+</style>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        const consentCheckbox = document.getElementById('consent');
+        const responseDiv = document.getElementById('response');
+
+        if (!consentCheckbox.checked) {
+            event.preventDefault();
+            responseDiv.textContent = 'Veuillez accepter l’utilisation et le stockage de vos données conformément à la loi 18/07.';
+        } else {
+            responseDiv.textContent = '';
+        }
+    });
+</script>
